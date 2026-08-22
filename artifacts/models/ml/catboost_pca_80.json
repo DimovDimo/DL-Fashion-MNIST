@@ -1,0 +1,20 @@
+{
+  "model": "CatBoost (PCA-80)",
+  "family": "Gradient Boosting",
+  "accuracy": 0.8704,
+  "macro_f1": 0.8700960144198155,
+  "weighted_f1": 0.8700960144198154,
+  "val_accuracy": NaN,
+  "fit_seconds": 8.427007913589478,
+  "predict_seconds": 0.09724760055541992,
+  "params": NaN,
+  "notes": "ordered boosting, oblivious trees, 800 iterations, PCA-80",
+  "selection_metric": "test_accuracy",
+  "saved_at": "2026-08-22T18:22:00",
+  "python": "3.13.15",
+  "numpy": "2.1.3",
+  "file": "catboost_pca_80.joblib",
+  "format": "joblib",
+  "kind": "sklearn_estimator",
+  "features": "pca"
+}

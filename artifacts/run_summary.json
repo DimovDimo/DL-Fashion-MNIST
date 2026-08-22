@@ -1,0 +1,16 @@
+{
+  "python": "3.13.15",
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "gpu": "Tesla T4",
+  "device_used": "cuda",
+  "seed": 42,
+  "train/val/test sizes": [
+    53991,
+    5999,
+    10000
+  ],
+  "models_evaluated": 22,
+  "best_model": "Hybrid ML+DL weighted voting",
+  "best_accuracy": 0.952
+}

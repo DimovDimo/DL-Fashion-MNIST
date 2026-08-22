@@ -1,0 +1,34 @@
+{
+  "python": "3.13.15",
+  "torch": "2.11.0+cu128",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "fast_mode": false,
+  "models_evaluated": 22,
+  "best_model": "Hybrid ML+DL weighted voting",
+  "best_accuracy": 0.952,
+  "best_per_family": {
+    "Classical ML": 0.8791,
+    "Deep Learning": 0.9509,
+    "Ensemble": 0.952,
+    "Gradient Boosting": 0.8995,
+    "Trivial": 0.1029
+  },
+  "optional_dependencies": {
+    "xgboost": true,
+    "lightgbm": true,
+    "catboost": true,
+    "optuna": true,
+    "umap": true,
+    "shap": true,
+    "lime": true,
+    "statsmodels": true
+  },
+  "unit_tests": {
+    "PASS": 28
+  },
+  "significant_pairs_after_holm": 147,
+  "artifacts_dir": "/content/artifacts",
+  "saved_model_artifacts": 41
+}

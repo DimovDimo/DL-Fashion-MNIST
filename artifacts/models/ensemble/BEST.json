@@ -1,0 +1,8 @@
+{
+  "folder": "ensemble",
+  "best_model": "Hybrid ML+DL weighted voting",
+  "accuracy": 0.952,
+  "macro_f1": 0.9518921772584843,
+  "file": "hybrid_ml_dl_weighted_voting.joblib",
+  "saved_at": "2026-08-22T18:32:26"
+}

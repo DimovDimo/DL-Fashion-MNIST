@@ -1,0 +1,8 @@
+{
+  "folder": "dl",
+  "best_model": "ResNet-small (residual CNN)",
+  "accuracy": 0.9509,
+  "macro_f1": 0.9507489040567345,
+  "file": "resnet_small_residual_cnn.pt",
+  "saved_at": "2026-08-22T18:31:08"
+}

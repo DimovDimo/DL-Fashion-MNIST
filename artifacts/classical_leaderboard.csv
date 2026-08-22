@@ -1,0 +1,13 @@
+rank,model,family,accuracy,macro_f1,error_rate,fit_s,predict_s,notes
+1,LightGBM (raw 784 px),Gradient Boosting,0.8995,0.8987343603760491,0.10050000000000003,622.541820526123,7.138075828552246,control: identical model on raw pixels instead of PCA features
+2,LightGBM (Optuna-tuned),Gradient Boosting,0.8798,0.8790411623065056,0.12019999999999997,47.52319622039795,4.054835319519043,"best of 15 TPE trials, refit on 20,000 rows"
+3,RBF SVM (PCA-90%),Classical ML,0.8791,0.8781826399902652,0.12090000000000001,5.465713739395142,10.9845552444458,"C=10, gamma='scale', PCA to 90% variance"
+4,XGBoost (PCA-80),Gradient Boosting,0.8785,0.8778897746108847,0.12150000000000005,10.136467695236206,0.17988991737365723,"hist trees, lr=0.15, depth=6, 600 rounds, PCA-80"
+5,LightGBM (PCA-80),Gradient Boosting,0.8775,0.8768591526720251,0.12250000000000005,122.92317986488342,7.810497522354126,"leaf-wise trees, 63 leaves, 800 rounds, PCA-80"
+6,CatBoost (PCA-80),Gradient Boosting,0.8704,0.8700960144198155,0.12960000000000005,8.427007913589478,0.09724760055541992,"ordered boosting, oblivious trees, 800 iterations, PCA-80"
+7,Random Forest (300 trees),Classical ML,0.8611,0.8590980252542335,0.13890000000000002,40.65842270851135,0.4392123222351074,"max_features='sqrt', unlimited depth"
+8,Logistic Regression (GridSearchCV),Classical ML,0.8425,0.8414181734705494,0.15749999999999997,,,"tuned C=0.01, 3-fold CV on 8,000 rows"
+9,Logistic Regression,Classical ML,0.8379,0.8377597251584646,0.16210000000000002,23.313019514083862,0.09117436408996582,"multinomial softmax, C=0.1, standardised pixels"
+10,Linear SVM,Classical ML,0.8344,0.8328052047072717,0.16559999999999997,37.19007706642151,0.0876007080078125,"hinge loss, C=0.01, one-vs-rest"
+11,Uniform-random baseline,Trivial,0.1029,0.10289331155432899,0.8971,0.0,0.0,uniform random guess over 10 classes
+12,Majority-class baseline,Trivial,0.1,0.01818181818181818,0.9,0.0,0.0,predicts a single class for every image

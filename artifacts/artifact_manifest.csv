@@ -1,0 +1,13 @@
+file,size (KB)
+classical_leaderboard.csv,1.9
+cnn.pt,1140.1
+final_leaderboard.csv,4.0
+mlp.pt,2110.0
+model_comparison.csv,2.6
+resnet-small_best.pt,2755.5
+resnet-small_last.ckpt,8239.1
+run_summary.json,0.3
+run_summary_v2.json,0.7
+unit_test_report.csv,3.6
+vit-tiny_best.pt,3168.9
+vit-tiny_last.ckpt,9533.2
