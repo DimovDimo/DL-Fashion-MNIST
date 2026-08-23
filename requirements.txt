@@ -1,0 +1,76 @@
+# =============================================================================
+# requirements.txt: Fashion-MNIST: Classical ML Baselines -> CNN (v2)
+# Notebook        : DL-Fashion-MNIST.ipynb
+# Target runtime  : Google Colab (T4 GPU) or a local CPU/GPU machine
+# Python          : 3.10 – 3.13
+#
+# The notebook is built to run end-to-end with the CORE block alone.  Every
+# OPTIONAL package is probed at import time (has_module / find_spec); when one
+# is missing, only that section is skipped with a printed explanation and the
+# rest of the study runs unchanged.  Install everything with:
+#
+#       pip install -r requirements.txt
+#
+# or only the core set (fast smoke test, no boosting / XAI / manifold extras):
+#
+#       pip install numpy pandas matplotlib seaborn scipy scikit-learn \
+#                   joblib torch kagglehub tqdm
+#
+# Versions are the current stable releases as of 2026-08-23.
+# =============================================================================
+
+
+# --- CORE : required (the notebook cannot run without these) ----------------
+numpy==2.5.2
+pandas==3.0.5
+matplotlib==3.11.1
+seaborn==0.13.2
+scipy==1.18.1
+scikit-learn==1.9.0
+joblib==1.5.3
+
+# Deep learning (MLP, CNN, residual CNN, ViT, autoencoder; AMP / OneCycle).
+# The PyPI wheel for Linux ships with CUDA support; for a CPU-only machine or
+# a specific CUDA build, install from the PyTorch index instead:
+#     pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cu126
+#     pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0
+
+# Note: `torchvision` is NOT imported by this project (the dataset is read
+# from Kaggle CSVs and all transforms are implemented on tensors directly)
+# so it is intentionally not required.
+
+# Dataset acquisition (kagglehub.dataset_download -> fashion-mnist CSVs)
+kagglehub==1.0.2
+
+# Progress output (installed by the notebook's dependency cell; not imported)
+tqdm==4.70.0
+
+
+# --- OPTIONAL: gradient boosting + automated tuning (Sections 3.7 - 3.8) ----
+# Fallback when missing: sections are skipped; GridSearchCV is used instead
+# of Optuna in 3.8.
+xgboost==3.4.1
+lightgbm==4.7.0
+catboost==1.2.10
+optuna==4.9.0
+
+
+# --- OPTIONAL: manifold learning (Section 2.8) ------------------------------
+# Fallback when missing: PCA + t-SNE only (already in scikit-learn).
+umap-learn==0.5.12
+
+
+# --- OPTIONAL: model explainability (Sections 6.4 - 6.6) --------------------
+# Fallback when missing: Grad-CAM / Integrated Gradients / occlusion are
+# implemented from scratch in the notebook and need no extra dependency.
+shap==0.52.0
+lime==0.2.0.1
+# Imported directly for LIME super-pixel segmentation (slic / mark_boundaries);
+# also a hard dependency of `lime`.
+scikit-image==0.26.0
+
+
+# --- OPTIONAL: exact McNemar test (Section 8.2) -----------------------------
+# Fallback when missing: closed-form chi-square + scipy.stats.binomtest.
+statsmodels==0.14.6
