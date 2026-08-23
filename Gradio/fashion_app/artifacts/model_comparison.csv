@@ -1,0 +1,17 @@
+model,family,accuracy,macro_f1,error_rate,fit_s,predict_s,params,notes
+ResNet-small (residual CNN),Deep Learning,0.9509,0.9507489040567345,0.04910000000000003,207.5379319190979,0.6792042255401611,696042.0,"3 stages x 2 residual blocks, width=32, flip/shift augmentation"
+"CNN (VGG-style, GAP)",Deep Learning,0.942,0.9419092649420631,0.05800000000000005,74.14552760124207,0.28566551208496094,288170.0,BN + Dropout + flip/shift augmentation
+MLP (512-256),Deep Learning,0.9107,0.9105080215192528,0.08930000000000005,30.70227074623108,0.2648491859436035,537354.0,"BatchNorm + Dropout(0.3), no augmentation"
+LightGBM (raw 784 px),Gradient Boosting,0.8995,0.8987343603760491,0.10050000000000003,622.541820526123,7.138075828552246,,control: identical model on raw pixels instead of PCA features
+ViT-tiny (16 patches),Deep Learning,0.8897,0.8889770799881432,0.11029999999999995,220.19610404968262,0.271437406539917,805130.0,"patch=7, dim=128, depth=6, heads=4"
+LightGBM (Optuna-tuned),Gradient Boosting,0.8798,0.8790411623065056,0.12019999999999997,47.52319622039795,4.054835319519043,,"best of 15 TPE trials, refit on 20,000 rows"
+RBF SVM (PCA-90%),Classical ML,0.8791,0.8781826399902652,0.12090000000000001,5.465713739395142,10.9845552444458,,"C=10, gamma='scale', PCA to 90% variance"
+XGBoost (PCA-80),Gradient Boosting,0.8785,0.8778897746108847,0.12150000000000005,10.136467695236206,0.17988991737365723,,"hist trees, lr=0.15, depth=6, 600 rounds, PCA-80"
+LightGBM (PCA-80),Gradient Boosting,0.8775,0.8768591526720251,0.12250000000000005,122.92317986488342,7.810497522354126,,"leaf-wise trees, 63 leaves, 800 rounds, PCA-80"
+CatBoost (PCA-80),Gradient Boosting,0.8704,0.8700960144198155,0.12960000000000005,8.427007913589478,0.09724760055541992,,"ordered boosting, oblivious trees, 800 iterations, PCA-80"
+Random Forest (300 trees),Classical ML,0.8611,0.8590980252542335,0.13890000000000002,40.65842270851135,0.4392123222351074,,"max_features='sqrt', unlimited depth"
+Logistic Regression (GridSearchCV),Classical ML,0.8425,0.8414181734705494,0.15749999999999997,,,,"tuned C=0.01, 3-fold CV on 8,000 rows"
+Logistic Regression,Classical ML,0.8379,0.8377597251584646,0.16210000000000002,23.313019514083862,0.09117436408996582,,"multinomial softmax, C=0.1, standardised pixels"
+Linear SVM,Classical ML,0.8344,0.8328052047072717,0.16559999999999997,37.19007706642151,0.0876007080078125,,"hinge loss, C=0.01, one-vs-rest"
+Uniform-random baseline,Trivial,0.1029,0.10289331155432899,0.8971,0.0,0.0,0.0,uniform random guess over 10 classes
+Majority-class baseline,Trivial,0.1,0.01818181818181818,0.9,0.0,0.0,0.0,predicts a single class for every image

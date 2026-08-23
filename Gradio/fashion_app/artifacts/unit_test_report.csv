@@ -1,0 +1,29 @@
+test,status,detail,seconds
+test_raw_arrays_have_expected_shape_and_dtype,PASS,"Image arrays are (N, 28, 28) uint8 with int labels in [0, 9]; the test set still has 10,000 rows.",0.002
+test_pixel_value_range,PASS,"Raw pixels stay within [0, 255] and the flattened matrices within [0, 1].",0.045
+test_split_sizes_and_stratification,PASS,The three splits partition the data exactly and every class keeps its 10% share.,0.0
+test_no_train_test_leakage,PASS,No image appears in both the training and the official test split.,0.051
+test_leakage_removed,PASS,No training image is byte-identical to any test image (Section 1.5b must have cleaned them).,0.093
+test_cleaning_preserved_the_official_test_set,PASS,"Cleaning removed rows from the training side only - the 10,000-image benchmark set is intact.",0.0
+test_train_val_are_disjoint,PASS,The validation split shares no image with the training split it was carved out of.,0.039
+test_tensor_dataset_shapes_and_dtypes,PASS,"TensorDatasets hold (N, 1, 28, 28) float32 images and int64 labels.",0.001
+test_normalisation_statistics,PASS,"Normalised training tensors have mean ~ 0 and std ~ 1 (train statistics, applied to all splits).",0.187
+test_dataloader_batch_shapes,PASS,"A training batch is (B, 1, 28, 28) / (B,) with B <= CFG.batch_size.",0.019
+test_augmentation_contract,PASS,"Augment() preserves shape/dtype, produces no NaNs, and is the identity when disabled.",0.008
+test_model_output_dimensions,PASS,"Every classifier maps (B, 1, 28, 28) -> (B, 10) with finite logits; the autoencoder reconstructs the input.",0.074
+test_parameter_counts_are_sane,PASS,"Parameter counts are positive, and every architecture stays inside its documented budget.",0.023
+test_initial_loss_matches_uniform_prediction,PASS,An untrained 10-class head must score cross-entropy ~ ln(10) = 2.3026 (uniform prediction).,0.963
+test_single_batch_overfitting,PASS,Sanity check that gradients flow: 40 steps on one batch must cut the loss by at least half.,0.32
+test_trained_models_beat_chance,PASS,Every trained model in TORCH_ZOO must beat the 10% chance level by a wide margin.,0.119
+test_predict_logits_alignment,PASS,"predict_logits returns (N, 10) logits whose labels match the dataset order exactly.",0.139
+test_probability_matrices_are_distributions,PASS,"Every member's probability matrix has the right shape, is non-negative and sums to 1 per row.",0.012
+test_soft_vote_identities,PASS,soft_vote of a single member is that member; equal weights reproduce the plain mean.,0.004
+test_ensemble_weights_on_simplex,PASS,Fitted ensemble weights are non-negative and sum to one.,0.0
+test_gradcam_output_contract,PASS,"Grad-CAM returns (B, 28, 28) maps normalised to [0, 1].",0.016
+test_integrated_gradients_completeness,PASS,Integrated Gradients satisfies its completeness axiom to within 15% (Riemann discretisation error).,0.185
+test_results_registry_is_consistent,PASS,"Every registered result has accuracy in (0, 1], error_rate = 1 - accuracy and a non-empty model name.",0.0
+test_metrics_match_manual_computation,PASS,evaluate_predictions agrees with a hand-computed accuracy on a synthetic example.,0.006
+test_set_seed_is_reproducible,PASS,set_seed() makes numpy and torch RNG streams reproducible.,0.004
+test_pca_feature_spaces_are_consistent,PASS,The boosting PCA transforms every split into the same dimensionality without NaNs.,0.001
+test_artifacts_were_written,PASS,Model checkpoints and result tables were actually written to the artifacts directory.,0.0
+test_best_models_persisted_to_per_family_folders,PASS,"The best version of every trained model is saved under models/{ml,dl,ensemble} with a JSON sidecar.",0.002

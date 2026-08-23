@@ -1,0 +1,26 @@
+{
+  "model": "ResNet-small (residual CNN)",
+  "family": "Deep Learning",
+  "accuracy": 0.9509,
+  "macro_f1": 0.9507489040567345,
+  "weighted_f1": 0.9507489040567345,
+  "val_accuracy": 0.942657109518253,
+  "fit_seconds": 207.5379319190979,
+  "predict_seconds": 0.6792042255401611,
+  "params": 696042,
+  "notes": "3 stages x 2 residual blocks, width=32, flip/shift augmentation",
+  "selection_metric": "best_validation_accuracy",
+  "saved_at": "2026-08-22T18:31:08",
+  "python": "3.13.15",
+  "numpy": "2.1.3",
+  "file": "resnet_small_residual_cnn.pt",
+  "format": "state_dict",
+  "kind": "torch_module",
+  "arch_class": "ResNetSmall",
+  "arch_kwargs": {
+    "num_classes": 10,
+    "width": 32,
+    "p_drop": 0.3
+  },
+  "n_parameters": 696042
+}

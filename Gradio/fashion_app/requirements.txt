@@ -1,0 +1,13 @@
+# Core
+gradio>=4.44
+torch>=2.2            # CPU build is enough: pip install torch --index-url https://download.pytorch.org/whl/cpu
+numpy
+pandas
+scikit-learn
+joblib
+pillow
+
+# Needed only if your exported artifacts contain these model types
+xgboost
+lightgbm
+# catboost            # uncomment if you exported the CatBoost model

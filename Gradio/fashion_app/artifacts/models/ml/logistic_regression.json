@@ -1,0 +1,20 @@
+{
+  "model": "Logistic Regression",
+  "family": "Classical ML",
+  "accuracy": 0.8379,
+  "macro_f1": 0.8377597251584646,
+  "weighted_f1": 0.8377597251584648,
+  "val_accuracy": NaN,
+  "fit_seconds": 23.313019514083862,
+  "predict_seconds": 0.09117436408996582,
+  "params": NaN,
+  "notes": "multinomial softmax, C=0.1, standardised pixels",
+  "selection_metric": "test_accuracy",
+  "saved_at": "2026-08-22T18:22:06",
+  "python": "3.13.15",
+  "numpy": "2.1.3",
+  "file": "logistic_regression.joblib",
+  "format": "joblib",
+  "kind": "sklearn_estimator",
+  "features": null
+}

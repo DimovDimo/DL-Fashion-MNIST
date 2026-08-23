@@ -1,0 +1,30 @@
+{
+  "model": "ViT-tiny (16 patches)",
+  "family": "Deep Learning",
+  "accuracy": 0.8897,
+  "macro_f1": 0.8889770799881432,
+  "weighted_f1": 0.8889770799881433,
+  "val_accuracy": 0.88648108018003,
+  "fit_seconds": 220.19610404968262,
+  "predict_seconds": 0.271437406539917,
+  "params": 805130,
+  "notes": "patch=7, dim=128, depth=6, heads=4",
+  "selection_metric": "best_validation_accuracy",
+  "saved_at": "2026-08-22T18:31:08",
+  "python": "3.13.15",
+  "numpy": "2.1.3",
+  "file": "vit_tiny_16_patches.pt",
+  "format": "state_dict",
+  "kind": "torch_module",
+  "arch_class": "VisionTransformer",
+  "arch_kwargs": {
+    "patch": 7,
+    "num_classes": 10,
+    "dim": 128,
+    "depth": 6,
+    "heads": 4,
+    "mlp_ratio": 2.0,
+    "drop": 0.1
+  },
+  "n_parameters": 805130
+}

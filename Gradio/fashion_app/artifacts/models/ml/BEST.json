@@ -1,0 +1,8 @@
+{
+  "folder": "ml",
+  "best_model": "LightGBM (raw 784 px)",
+  "accuracy": 0.8995,
+  "macro_f1": 0.8987343603760491,
+  "file": "lightgbm_raw_784_px.joblib",
+  "saved_at": "2026-08-22T18:22:06"
+}
